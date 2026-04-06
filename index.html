@@ -3,52 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Turnos | PATRIC SOFT ®</title>
+    <title>Barber Pro | PATRIC SOFT ®</title>
     <link rel="icon" href="https://fav.farm/💈">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
-<body style="padding: 40px; background-color: #000;">
-    <h1 style="font-family: 'Bebas Neue'; color: var(--gold); font-size: 3.5rem; letter-spacing: 3px;">AGENDA DEL DÍA</h1>
-    
-    <table class="admin-table" id="tabla-admin">
-        <thead>
-            <tr>
-                <th>CLIENTE</th>
-                <th>SERVICIO</th>
-                <th>FECHA</th>
-                <th>HORA</th>
-                <th>SEÑA</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+<body>
 
-    <button onclick="limpiar()" style="margin-top: 30px; padding: 15px 30px; background: transparent; border: 2px solid #c0392b; color: #c0392b; font-family: 'Bebas Neue'; font-size: 1.2rem; cursor: pointer; border-radius: 8px;">
-        VACIAR TODA LA AGENDA
+<header>
+    <div class="logo">BARBER SHOP</div>
+    <p>ESTILO & DISTINCIÓN | BY PATRIC SOFT ®</p>
+</header>
+
+<div class="container">
+    <section class="booking-section">
+        <h2>1. Seleccioná tu Estilo</h2>
+        <div class="services-grid" id="services-grid">
+            </div>
+    </section>
+
+    <section class="booking-form">
+        <h2>2. Reservá tu Turno</h2>
+        <div class="user-data">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="client-name" placeholder="Tu Nombre Completo">
+            </div>
+            
+            <div class="input-group">
+                <i class="fas fa-calendar-alt"></i>
+                <input type="date" id="booking-date" onchange="generateHours()">
+            </div>
+            
+            <p class="label-info">Horarios disponibles:</p>
+            <div id="hours-container" class="hours-grid">
+                </div>
+        </div>
+    </section>
+
+    <section class="payment-section">
+        <h2>3. Garantía de Turno</h2>
+        <div class="payment-box">
+            <p><i class="fas fa-shield-alt"></i> Seña requerida: <strong>$1.500</strong></p>
+            <a href="#" class="btn-pay" onclick="simulatePayment(event)">
+                <i class="fas fa-credit-card"></i> PAGAR SEÑA CON MERCADO PAGO
+            </a>
+            <p id="payment-status" class="status-pending">⚠️ Esperando pago para habilitar reserva...</p>
+        </div>
+    </section>
+
+    <button id="btn-confirm" class="btn-reserve" onclick="confirmBooking()" disabled>
+        <i class="fas fa-calendar-check"></i> CONFIRMAR RESERVA POR WHATSAPP
     </button>
+</div>
 
-    <script>
-        function mostrar() {
-            const data = JSON.parse(localStorage.getItem('turnos_barberia')) || [];
-            const body = document.querySelector('#tabla-admin tbody');
-            body.innerHTML = "";
-            data.forEach(t => {
-                let r = body.insertRow();
-                r.insertCell(0).innerText = t.cliente;
-                r.insertCell(1).innerText = t.servicio;
-                r.insertCell(2).innerText = t.fecha;
-                r.insertCell(3).innerText = t.hora;
-                r.insertCell(4).innerText = t.pago;
-            });
-        }
-        function limpiar() { 
-            if(confirm("¿Borrar lista?")) { 
-                localStorage.removeItem('turnos_barberia'); 
-                mostrar(); 
-            } 
-        }
-        mostrar();
-    </script>
+<footer>
+    <div class="footer-content">
+        <p>PATRIC SOFT ® | Soluciones Digitales 2026</p>
+        <div class="dev-contact">
+            <span>¿Querés un turnero para tu negocio?</span>
+            <a href="https://wa.me/5492657521775?text=Hola!%20Vi%20tu%20sistema%20de%20Barber%C3%ADa%20y%20me%20interesa%20uno." target="_blank">
+                <i class="fab fa-whatsapp"></i> Contactar al Desarrollador
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
