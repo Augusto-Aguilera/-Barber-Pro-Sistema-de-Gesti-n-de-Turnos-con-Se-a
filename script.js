@@ -63,11 +63,9 @@ function confirmBooking() {
     }
 
     const turno = { cliente: name, servicio: selectedService.name, fecha: date, hora: selectedHour, pago: "SÍ ($1500)" };
-    
-    // USAMOS sessionStorage PARA QUE SE BORRE AL CERRAR
-    let agenda = JSON.parse(sessionStorage.getItem('turnos_barberia')) || [];
+    let agenda = JSON.parse(localStorage.getItem('turnos_barberia')) || [];
     agenda.push(turno);
-    sessionStorage.setItem('turnos_barberia', JSON.stringify(agenda));
+    localStorage.setItem('turnos_barberia', JSON.stringify(agenda));
 
     const msg = `💈 *NUEVA RESERVA*\n\n👤 Cliente: ${name}\n💇‍♂️ Servicio: ${selectedService.name}\n📅 Fecha: ${date}\n⏰ Hora: ${selectedHour}\n💰 SEÑA: PAGADA`;
     window.open(`https://wa.me/5492657521775?text=${encodeURIComponent(msg)}`);
