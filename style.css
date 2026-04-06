@@ -1,0 +1,141 @@
+:root {
+    --gold: #d4af37;
+    --dark: #0a0a0a;
+    --gray: #1a1a1a;
+    --text: #ffffff;
+    --glass: rgba(255, 255, 255, 0.03);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--dark);
+    background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #0a0a0a 100%);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    color: var(--gold);
+    letter-spacing: 8px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.container { max-width: 700px; margin: 0 auto; padding: 0 20px; }
+
+h2 { font-family: 'Bebas Neue'; color: var(--gold); margin-bottom: 20px; font-size: 2.2rem; border-left: 4px solid var(--gold); padding-left: 15px; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.service-card {
+    background: var(--gray);
+    border: 1px solid #333;
+    padding: 25px 15px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.service-card.selected { background: var(--gold); color: black; border-color: var(--gold); }
+.service-card i { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+
+.user-data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--glass);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.input-group { position: relative; display: flex; align-items: center; }
+.input-group i { position: absolute; left: 15px; color: var(--gold); }
+
+input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #000;
+    color: white;
+    font-size: 1rem;
+}
+
+.hours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+.hour-btn {
+    padding: 12px;
+    background: #000;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hour-btn.selected { background: var(--gold); color: black; }
+
+.payment-box {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px dashed var(--gold);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-pay {
+    display: inline-block;
+    background: #009ee3;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+.status-pending { color: #ff9800; font-weight: bold; font-size: 0.9rem; }
+.status-success { color: #4caf50; font-weight: bold; font-size: 0.9rem; }
+
+.btn-reserve {
+    width: 100%;
+    background: var(--gold);
+    color: black;
+    border: none;
+    padding: 22px;
+    margin-top: 40px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Bebas Neue';
+    letter-spacing: 2px;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+footer { text-align: center; padding: 60px 20px; color: #666; font-size: 0.9rem; }
+.dev-contact a { color: var(--gold); text-decoration: none; font-weight: 600; }
+
+.admin-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #111; color: white; }
+.admin-table th, .admin-table td { padding: 15px; border: 1px solid #333; text-align: left; }
+.admin-table th { color: var(--gold); font-family: 'Bebas Neue'; font-size: 1.2rem; }
