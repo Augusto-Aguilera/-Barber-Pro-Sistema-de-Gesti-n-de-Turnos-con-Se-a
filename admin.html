@@ -2,7 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Turnos | PATRIC SOFT ®</title>
+    <link rel="icon" href="https://fav.farm/💈">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
@@ -40,7 +42,12 @@
                 r.insertCell(4).innerText = t.pago;
             });
         }
-        function limpiar() { if(confirm("¿Borrar lista?")) { localStorage.removeItem('turnos_barberia'); mostrar(); } }
+        function limpiar() { 
+            if(confirm("¿Borrar lista?")) { 
+                localStorage.removeItem('turnos_barberia'); 
+                mostrar(); 
+            } 
+        }
         mostrar();
     </script>
 </body>
