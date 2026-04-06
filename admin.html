@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Panel de Turnos | PATRIC SOFT ®</title>
+    <link rel="icon" href="https://fav.farm/💈">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
@@ -28,9 +29,11 @@
 
     <script>
         function mostrar() {
-            const data = JSON.parse(localStorage.getItem('turnos_barberia')) || [];
+            // USAMOS sessionStorage PARA QUE SE LIMPIE AUTOMÁTICAMENTE
+            const data = JSON.parse(sessionStorage.getItem('turnos_barberia')) || [];
             const body = document.querySelector('#tabla-admin tbody');
             body.innerHTML = "";
+            
             data.forEach(t => {
                 let r = body.insertRow();
                 r.insertCell(0).innerText = t.cliente;
@@ -40,7 +43,14 @@
                 r.insertCell(4).innerText = t.pago;
             });
         }
-        function limpiar() { if(confirm("¿Borrar lista?")) { localStorage.removeItem('turnos_barberia'); mostrar(); } }
+
+        function limpiar() {
+            if(confirm("¿Estás seguro de borrar toda la agenda?")) {
+                sessionStorage.removeItem('turnos_barberia');
+                mostrar();
+            }
+        }
+
         mostrar();
     </script>
 </body>
